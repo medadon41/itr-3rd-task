@@ -6,8 +6,13 @@ namespace Task3
 {
     class Program
     {
+        static void CheckIncorrect(bool incorrect) 
+        {
+            
+        }
         static void Main(string[] args)
         {
+            Table table = new Table();
             if (args.Length < 3)
             {
                 Console.WriteLine($"You have not entered enough parameters: {args.Length}.");
@@ -47,7 +52,7 @@ namespace Task3
                     Console.WriteLine($"{i + 1} - {args[i]}");
                 }
 
-                Console.WriteLine("To exit type \"EXIT\".");
+                Console.WriteLine("To exit type \"exit\".\nTo get table type \"help\"");
 
                 bool incorrect_input = true;
                 int players_choice = 0;
@@ -55,7 +60,10 @@ namespace Task3
                 {
                     Console.Write("Enter your move: ");
                     string input_str = Console.ReadLine();
-                    if (input_str == "EXIT") return;
+                    if (input_str == "exit") 
+                        return;
+                    if (input_str == "help") 
+                        table.CreateTable(args);
                     else
                     {
                         try
@@ -80,7 +88,7 @@ namespace Task3
 
                 bool array_sides = Winner.CheckArrWinRange(args, pc_choice);
 
-                Winner.CheckingResults(args, pc_choice, players_choice, array_sides);
+                Console.WriteLine(Winner.CheckingResults(args, pc_choice, players_choice, array_sides));
 
                 HMAC.PrintByteArray(key, "key");
                 Console.WriteLine("Type any button");

@@ -13,4 +13,5 @@ D:\itra\Task3\Task3\obj\Debug\net5.0\Task3.dll
 D:\itra\Task3\Task3\obj\Debug\net5.0\ref\Task3.dll
 D:\itra\Task3\Task3\obj\Debug\net5.0\Task3.pdb
 D:\itra\Task3\Task3\obj\Debug\net5.0\Task3.genruntimeconfig.cache
+D:\itra\Task3\Task3\bin\Debug\net5.0\ConsoleTables.dll
 D:\itra\Task3\Task3\obj\Debug\net5.0\refint\Task3.dll

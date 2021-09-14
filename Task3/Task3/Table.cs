@@ -4,7 +4,7 @@ namespace Task3
 {
     public class Table
     {
-        private readonly Winner _winner = new();
+       // private readonly Winner _winner = new();
 
         private void FillingTableHead(string[] args, string[] tableHead)
         {
@@ -14,8 +14,12 @@ namespace Task3
 
         private void FillingArrayForRows(string[] args, object[][] itemsForTable, int i)
         {
+            bool array_sides;
             for (int j = 0; j < args.Length; j++)
-                itemsForTable[i][j + 1] = _winner.CheckingResults(args, i, j);
+            {
+                array_sides = Winner.CheckArrWinRange(args, i);
+                itemsForTable[i][j + 1] = Winner.CheckingResults(args, i, j, array_sides);
+            }
         }
 
         private void AddRows(string[] args, object[][] itemsForTable, ConsoleTable table)

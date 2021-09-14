@@ -15,9 +15,21 @@ namespace Task3
             else return false;
         }
 
-        public static string FinalResult(int players_choice, int pc_choice, string[] args, int npc)
+        public static string FinalResultFirstCase(int players_choice, int pc_choice, string[] args)
         {
-            if (npc > pc_choice && npc <= pc_choice + args.Length / 2)
+            if (players_choice > pc_choice && players_choice <= pc_choice + args.Length / 2)
+            {
+                return "WIN";
+            }
+            else
+            {
+                return "LOSE";
+            }
+        }
+
+        public static string FinalResultSecondCase(int players_choice, int pc_choice, string[] args)
+        {
+            if (players_choice < pc_choice && players_choice >= pc_choice - args.Length / 2)
             {
                 return "LOSE";
             }
@@ -45,15 +57,11 @@ namespace Task3
 
             if (array_sides == true)
             {
-                string result = FinalResult(pc_choice, players_choice, args, npc);
-                Console.WriteLine(result);
-                return result;
+                return FinalResultFirstCase(players_choice, pc_choice, args);
             }
             else
             {
-                string result = FinalResult(pc_choice, players_choice, args, npc);
-                Console.WriteLine(result);
-                return result;
+                return FinalResultSecondCase(players_choice, pc_choice, args);
             }
         }
     }
