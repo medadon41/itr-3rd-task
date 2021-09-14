@@ -51,7 +51,6 @@ namespace Task3
 
             if (pc_choice == npc)
             {
-                Console.WriteLine("DRAW", npc);
                 return "DRAW";
             }
 

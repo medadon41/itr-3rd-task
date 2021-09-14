@@ -62,8 +62,11 @@ namespace Task3
                     string input_str = Console.ReadLine();
                     if (input_str == "exit") 
                         return;
-                    if (input_str == "help") 
+                    if (input_str == "help")
+                    {
                         table.CreateTable(args);
+                        return;
+                    }
                     else
                     {
                         try
@@ -88,7 +91,7 @@ namespace Task3
 
                 bool array_sides = Winner.CheckArrWinRange(args, pc_choice);
 
-                Console.WriteLine(Winner.CheckingResults(args, pc_choice, players_choice, array_sides));
+                Console.WriteLine($"RESULT: {Winner.CheckingResults(args, pc_choice, players_choice, array_sides)}");
 
                 HMAC.PrintByteArray(key, "key");
                 Console.WriteLine("Type any button");
