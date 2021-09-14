@@ -15,47 +15,45 @@ namespace Task3
             else return false;
         }
 
-        public static void CheckingResults(string[] args, int pc_choice, int players_choice, bool array_sides)
+        public static string FinalResult(int players_choice, int pc_choice, string[] args, int npc)
         {
-            int numplayerschoice = 0;
+            if (npc > pc_choice && npc <= pc_choice + args.Length / 2)
+            {
+                return "LOSE";
+            }
+            else
+            {
+                return "WIN";
+            }
+        }
+
+        public static string CheckingResults(string[] args, int pc_choice, int players_choice, bool array_sides)
+        {
+            int npc = 0;
             for (int i = 0; i < args.Length; i++)
                 if (players_choice == i)
                 {
-                    numplayerschoice = i;
+                    npc = i;
                     break;
                 }
 
-            if (pc_choice == numplayerschoice)
+            if (pc_choice == npc)
             {
-                Console.WriteLine("Draw", numplayerschoice);
-                return;
+                Console.WriteLine("DRAW", npc);
+                return "DRAW";
             }
 
             if (array_sides == true)
             {
-                if (numplayerschoice > pc_choice && numplayerschoice <= pc_choice + args.Length / 2)
-                {
-                    Console.WriteLine("PC win!");
-                    return;
-                }
-                else
-                {
-                    Console.WriteLine("Player win!");
-                    return;
-                }
+                string result = FinalResult(pc_choice, players_choice, args, npc);
+                Console.WriteLine(result);
+                return result;
             }
             else
             {
-                if (numplayerschoice < pc_choice && numplayerschoice >= pc_choice - args.Length / 2)
-                {
-                    Console.WriteLine("Player win!");
-                    return;
-                }
-                else
-                {
-                    Console.WriteLine("PC win!");
-                    return;
-                }
+                string result = FinalResult(pc_choice, players_choice, args, npc);
+                Console.WriteLine(result);
+                return result;
             }
         }
     }
